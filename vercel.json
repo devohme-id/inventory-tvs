@@ -6,6 +6,9 @@
     },
     "routes": [
         {
+            "handle": "filesystem"
+        },
+        {
             "src": "/(.*)",
             "dest": "/api/index.php"
         }
@@ -13,6 +16,6 @@
     "env": {
         "APP_ENV": "production",
         "APP_DEBUG": "true",
-        "APP_URL": "https://wmstvs.vercel.app"
+        "APP_URL": "https://inventory-tvs.vercel.app"
     }
 }
