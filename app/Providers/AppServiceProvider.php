@@ -16,6 +16,7 @@ use App\Models\InboundInvoice;
 use App\Observers\InboundInvoiceObserver;
 use App\Models\SoItem;
 use App\Observers\SoItemObserver;
+use Illuminate\Support\Facades\URL;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -32,6 +33,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        if ($this->app->environment('production')) {
+            URL::forceScheme('https');
+        }
         // PERBAIKAN PAGINASI
         // Ubah dari Bootstrap ke Tailwind agar sesuai dengan tema aplikasi
         Paginator::useTailwind();
